@@ -9,6 +9,7 @@ package com.bridgelabz.cabInvoice;
 
 import java.util.List;
 
+import model.EnhanceInvoice;
 import model.Rides;
 
 public class CabInvoiceGenerator {
@@ -35,13 +36,33 @@ public class CabInvoiceGenerator {
 		}
 
 	}
-
+	
+	/**
+	 * UC2
+	 * @param rideList
+	 * @return cost of multiple  ride using list in total fair
+	 */
 	public double calcFairForMultipleRides(List<Rides> rideList) {
 		double totalFair = 0;
 		for(Rides ride : rideList) {
 			totalFair = (ride.getDistance()*COST_PER_KM + ride.getTime()*COST_PER_MIN) + totalFair;
 		}
 		return totalFair;
+	}
+	/**
+	 * UC3
+	 * @param rideList
+	 * @return  To perform average fair per ride 
+	 *  and total fair with number of rides
+	 */
+
+	public EnhanceInvoice generateEnhanceInvoice(List<Rides> rideList) {
+		double totalFair= calcFairForMultipleRides(rideList) ;
+		int  numOfRides = rideList.size();
+		double avgFair = totalFair/ numOfRides ;
+		
+		
+		return  new EnhanceInvoice( numOfRides, totalFair, avgFair );
 	}
 
 }
