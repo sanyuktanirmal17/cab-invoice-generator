@@ -17,9 +17,6 @@ public class EnhanceInvoice {
 		return numberOfRides;
 	}
 
-	/*
-	 * constructor call
-	 */
 	public EnhanceInvoice(int totalFair, double fair, double avgFairPerRide) {
 		this.numberOfRides = totalFair;
 		this.fair = fair;

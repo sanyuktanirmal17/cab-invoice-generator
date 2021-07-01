@@ -54,15 +54,23 @@ public class CabInvoiceGenerator {
 	 * @param rideList
 	 * @return  To perform average fair per ride 
 	 *  and total fair with number of rides
+	 * @throws EnhanceGeneratorException 
 	 */
 
-	public EnhanceInvoice generateEnhanceInvoice(List<Rides> rideList) {
-		double totalFair= calcFairForMultipleRides(rideList) ;
-		int  numOfRides = rideList.size();
-		double avgFair = totalFair/ numOfRides ;
-		
-		
-		return  new EnhanceInvoice( numOfRides, totalFair, avgFair );
-	}
+	public EnhanceInvoice generateEnhanceInvoice(List<Rides> rideList) throws EnhanceGeneratorException {
+	try {
+			double totalFair= calcFairForMultipleRides(rideList) ;
+			int  numOfRides = rideList.size();
+			double avgFair = totalFair/ numOfRides ;
+			
+			return  new EnhanceInvoice( numOfRides, totalFair, avgFair );
+		}
+		catch(Exception e) {
+			 throw new EnhanceGeneratorException(EnhanceGeneratorException.exception.SERVICE_NULL_EXCEPTION);
+			
+		}
 
+	}
+	
+	
 }
