@@ -24,4 +24,13 @@ public class CabInvoiceGeneratorTest {
 		double totalFair = invoicegenerator.generateFair(distance , time);
 		Assert.assertEquals(126.0, totalFair,DELTA);
 	}
+
+   
+	@Test
+	public void given_DistanceAndTime_WhentotalFairIsLessThenMinFair_ShouldReturnFalse() {
+		double distance = 0.2;
+		double time = 0.1;
+		double totalFair = invoicegenerator.generateFair(distance , time);
+		Assert.assertNotEquals(2.1, totalFair);;
+	}
 }
