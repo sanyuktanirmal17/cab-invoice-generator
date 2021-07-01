@@ -20,9 +20,8 @@ public class CabInvoiceGeneratorTest {
 	@Test
 	public void given_DistanceAndTime_ShouldReturnTotalFair() {
 		double distance = 12;
-		double time = 5;
+		double time = 6;
 		double totalFair = invoicegenerator.generateFair(distance , time);
-		Assert.assertEquals(125.0, totalFair,DELTA);
+		Assert.assertEquals(126.0, totalFair,DELTA);
 	}
-
 }
