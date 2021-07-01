@@ -7,6 +7,10 @@
 
 package com.bridgelabz.cabInvoice;
 
+import java.util.List;
+
+import model.Rides;
+
 public class CabInvoiceGenerator {
 
 	private final double COST_PER_KM = 10;
@@ -30,6 +34,14 @@ public class CabInvoiceGenerator {
 			return totalFair;
 		}
 
+	}
+
+	public double calcFairForMultipleRides(List<Rides> rideList) {
+		double totalFair = 0;
+		for(Rides ride : rideList) {
+			totalFair = (ride.getDistance()*COST_PER_KM + ride.getTime()*COST_PER_MIN) + totalFair;
+		}
+		return totalFair;
 	}
 
 }
