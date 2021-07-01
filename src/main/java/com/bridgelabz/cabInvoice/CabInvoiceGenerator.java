@@ -14,6 +14,7 @@ public class CabInvoiceGenerator {
 	private final double MIN_FAIR = 5.0;
 
 	/**
+	 * UC1 
 	 * @param distance  
 	 * @param time
 	 * @return calculate totalFair or minFair
