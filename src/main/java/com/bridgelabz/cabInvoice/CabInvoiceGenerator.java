@@ -6,9 +6,7 @@
  */
 
 package com.bridgelabz.cabInvoice;
-
 import java.util.List;
-
 import model.Rides;
 
 public class CabInvoiceGenerator {
